@@ -1,0 +1,34 @@
+.simple-todos-container {
+  background-color: #ffc2a0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.simple-todos-card {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 85%;
+  padding: 20px;
+  border: none;
+  border-radius: 15px;
+}
+
+.main-heading {
+  color: #ff8542;
+  font-family: 'Roboto';
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.todos-list-container {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  padding-left: 0;
+  margin-top: 20px;
+}
