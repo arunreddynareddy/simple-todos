@@ -6,14 +6,50 @@
   list-style-type: none;
 }
 
+.input-title-container {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox {
+  cursor: pointer;
+  outline: none;
+}
+
 .title {
   color: #000000;
   font-family: 'Roboto';
   font-size: 16px;
   font-weight: 500;
+  margin-left: 10px;
 }
 
-.delete-button {
+.complete {
+  text-decoration: line-through;
+  text-decoration-color: #ff0b37;
+}
+
+.title-input {
+  background-color: transparent;
+  color: #000000;
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid #046af8;
+  border-radius: 5px;
+  padding: 6px 8px 6px 8px;
+  outline: none;
+  width: 100%;
+  min-width: 200px;
+  margin: 10px 0 10px 10px;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+}
+
+.delete-btn {
   background-color: transparent;
   color: #ff0b37;
   font-family: 'Roboto';
@@ -21,7 +57,18 @@
   font-weight: 400;
   border: 1px solid #ff0b37;
   border-radius: 5px;
-  padding: 5px 10px 4px 10px;
+  padding: 5px 10px 5px 10px;
   cursor: pointer;
   outline: none;
+  margin-left: 20px;
+}
+
+.edit-btn {
+  color: #046af8;
+  border: 1px solid #046af8;
+}
+
+.save-btn {
+  color: #15be09;
+  border: 1px solid #15be09;
 }

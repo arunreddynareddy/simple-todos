@@ -1,3 +1,5 @@
+import {v4 as uuidv4} from 'uuid'
+
 import {Component} from 'react'
 import './index.css'
 
@@ -41,12 +43,63 @@ const initialTodosList = [
 class SimpleTodos extends Component {
   state = {
     todosList: initialTodosList,
+    titleInput: '',
   }
 
   deleteTodo = id => {
     const {todosList} = this.state
     const filteredTodoList = todosList.filter(eachTodo => eachTodo.id !== id)
     this.setState({todosList: filteredTodoList})
+  }
+
+  onChangeTitleInput = event => {
+    this.setState({titleInput: event.target.value})
+  }
+
+  onClickAddTodo = () => {
+    const {titleInput} = this.state
+
+    if (titleInput !== '') {
+      const newTodo = {
+        id: uuidv4(),
+        title: titleInput,
+      }
+      this.setState(prevState => ({
+        todosList: [...prevState.todosList, newTodo],
+        titleInput: '',
+      }))
+    }
+  }
+
+  saveTodo = todo => {
+    this.setState(prevState => ({
+      todosList: prevState.todosList.map(item =>
+        item.id === todo.id ? todo : item,
+      ),
+    }))
+  }
+
+  renderTodoInputField = () => {
+    const {titleInput} = this.state
+
+    return (
+      <div className="input-add-button-container">
+        <input
+          type="text"
+          className="todo-input"
+          placeholder="Enter Todo"
+          value={titleInput}
+          onChange={this.onChangeTitleInput}
+        />
+        <button
+          type="button"
+          className="add-button"
+          onClick={this.onClickAddTodo}
+        >
+          Add
+        </button>
+      </div>
+    )
   }
 
   render() {
@@ -56,12 +109,14 @@ class SimpleTodos extends Component {
       <div className="simple-todos-container">
         <div className="simple-todos-card">
           <h1 className="main-heading">Simple Todos</h1>
+          {this.renderTodoInputField()}
           <ul className="todos-list-container">
             {todosList.map(eachTodo => (
               <TodoItem
                 key={eachTodo.id}
                 todoDetails={eachTodo}
                 deleteTodo={this.deleteTodo}
+                saveTodo={this.saveTodo}
               />
             ))}
           </ul>

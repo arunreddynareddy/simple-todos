@@ -3,7 +3,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  padding: 30px;
+  min-height: 100vh;
 }
 
 .simple-todos-card {
@@ -22,6 +23,40 @@
   font-family: 'Roboto';
   font-size: 32px;
   font-weight: bold;
+}
+
+.input-add-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+
+.todo-input {
+  background-color: transparent;
+  color: #000000;
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid #ff8542;
+  border-radius: 5px;
+  padding: 6px 8px 6px 8px;
+  outline: none;
+  width: 30%;
+  min-width: 150px;
+}
+
+.add-button {
+  background-color: #ff8542;
+  color: #ffffff;
+  font: 400 12px 'Roboto';
+  border: none;
+  border-radius: 5px;
+  padding: 6px 14px 6px 14px;
+  cursor: pointer;
+  outline: none;
+  align-self: flex-end;
+  margin-left: 20px;
 }
 
 .todos-list-container {
