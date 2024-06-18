@@ -56,10 +56,26 @@ class SimpleTodos extends Component {
     this.setState({titleInput: event.target.value})
   }
 
+  digitsOnly = string => [...string].every(c => '0123456789'.includes(c))
+
   onClickAddTodo = () => {
     const {titleInput} = this.state
+    const inputList = titleInput.split(' ')
+    const noOfTodos = inputList[inputList.length - 1]
 
-    if (titleInput !== '') {
+    if (this.digitsOnly(noOfTodos) && inputList.length > 1) {
+      // eslint-disable-next-line no-plusplus
+      for (let i = 1; i <= noOfTodos; i++) {
+        const newTodo = {
+          id: uuidv4(),
+          title: titleInput,
+        }
+        this.setState(prevState => ({
+          todosList: [...prevState.todosList, newTodo],
+        }))
+      }
+      this.setState({titleInput: ''})
+    } else if (titleInput !== '') {
       const newTodo = {
         id: uuidv4(),
         title: titleInput,
